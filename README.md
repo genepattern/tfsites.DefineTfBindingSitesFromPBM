@@ -4,4 +4,4 @@ Normalizes the median fluorescence intensity (MFI) values in a raw protein-bindi
 
 Created in collaboration with the Emma Farley lab (UCSD).
 
-See documentation at https://genepattern.github.io/tfsites.DefineTfSites/v1/
+See documentation at [https://genepattern.github.io/tfsites.DefineTfSites/v1/](https://genepattern.github.io/tfsites.DefineTfBindingSitesFromPBM/)
