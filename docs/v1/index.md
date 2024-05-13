@@ -1,4 +1,4 @@
-# tfsites.DefineTfSites v1
+# tfsites.DefineTFBindingSitesFromPBM v1
 
 **Author(s):** Joe Solvason
 
@@ -13,7 +13,7 @@
 
 ## Introduction
 
-`defineTfSites` normalizes the median fluorescence intensity (MFI) values in a raw protein-binding microarray (PBM) data file for a transcription factor of interest. The k-mer with the maximum MFI that conforms to the IUPAC definition of a binding site is normalized to 1.0 and all other k-mers are normalized relative to that MFI value. For example, a normalized value of 0.1 is 10% of the maximum MFI. 
+`defineTFBindingSites` ()fromPBM or fromPFM) normalizes the median fluorescence intensity (MFI) values in a raw protein-binding microarray (PBM) data file for a transcription factor of interest. The k-mer with the maximum MFI that conforms to the IUPAC definition of a binding site is normalized to 1.0 and all other k-mers are normalized relative to that MFI value. For example, a normalized value of 0.1 is 10% of the maximum MFI. 
 
 ## Methodology
 
@@ -25,29 +25,29 @@ The raw PBM dataset for a transcription factor is downloaded from [uniPROBE](htt
 
 ### Inputs and Outputs
 
-- <span style="color: red;">*</span> **Raw PBM Input (.tsv)** 
+- <span style="color: red;">*</span> **raw PBM data (.tsv)** 
     - Input file containing the raw PBM dataset. This file is the output of a protein-binding microarray experiment obtained from uniPROBE. 
-- <span style="color: red;">*</span>**Relative Affinity Output (.tsv)**
+- <span style="color: red;">*</span>**reference relative affinity table output filename (.tsv)**
     - Name of the output file containing the normalized PBM data. 
-- <span style="color: red;">*</span>**Histograms of Relative Affinities (.png)** 
+- <span style="color: red;">*</span>**histograms of relative affinities output filename(.png)** 
     - Name of the output graph containing 3 histogram plots of the normalized affinity values.
       
 ### Other Parameters
-- <span style="color: red;">*</span>**IUPAC Definition (string)**
+- <span style="color: red;">*</span>**binding site definition (string)**
     - IUPAC definition of the core transcription factor binding site (see [here](https://www.bioinformatics.org/sms/iupac.html)). The length of the IUPAC definition should be the same length k as the k-mers in the raw PBM file.
-- <span style="color: red;">*</span>**Column Index of DNA K-mers (integer)**
+- <span style="color: red;">*</span>**column of PBM k-mers (integer)**
     - Number of the column containing the forward DNA sequence in the input PBM file (1-indexed, 1 is the first column).
-- <span style="color: red;">*</span>**Column Index of MFI (integer)**
+- <span style="color: red;">*</span>**column of PBM MFI (integer)**
     - Number of the column containing the MFI signal in the input PBM file (1-indexed, 1 is the first column).
-- <span style="color: red;">*</span>**Header Present (boolean)**
+- <span style="color: red;">*</span>**header present (boolean)**
     - If `True`, a header exists in the PBM data file. If `False`, no header exists.
-- **Report IUPAC K-mers Only (boolean)**
+- **report sites only (boolean)**
     - `default = False`
     - If `True`, only report k-mers abiding by the IUPAC definition. If `False`, report all k-mers.
-- **Set Minimum Normalization (boolean)**
+- **enforce minimum relative affinity (boolean)**
     - `default = False`
     - If `True`, normalize the data so the minimum affinity value is set to 0.001. The normalized affinity values will range between 0.001 and 1.0. If `False`, the values will range between 0 and 1.0.
-- **Max Kmer to Normalize (string)**
+- **define highest relative affinity sequence (string)**
     - `default = None`
     - The k-mer sequence whose MFI will be used to normalize the MFI values of all other k-mers. The relative affinity for this k-mer will be 1.0. 
 
