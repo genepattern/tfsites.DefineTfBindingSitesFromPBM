@@ -1,6 +1,6 @@
-# tfsites.DefineTFBindingSitesFromPBM v1
+# tfsites.DefineTFBindingSites.from.PBM v1
 
-**Author(s):** Joe Solvason
+**Author(s):** Joe Solvason, Simran Jandu
 
 **Contact:** Joe Solvason (solvason@eng.ucsd.edu)
 
@@ -13,7 +13,7 @@
 
 ## Introduction
 
-`defineTFBindingSitesFromPBM` normalizes the median fluorescence intensity (MFI) values in a raw protein-binding microarray (PBM) data file for a transcription factor of interest. The k-mer with the maximum MFI that conforms to the binding site definition is normalized to 1.0 and all other k-mers are normalized relative to that MFI value. For example, a normalized value of 0.1 is 10% of the maximum MFI. 
+`DefineTFBindingSites.from.PBM` normalizes the median fluorescence intensity (MFI) values in a raw protein-binding microarray (PBM) data file for a transcription factor of interest. The k-mer with the maximum MFI that conforms to the binding site definition is normalized to 1.0 and all other k-mers are normalized relative to that MFI value. For example, a normalized value of 0.1 is 10% of the maximum MFI. 
 
 ## Methodology
 
