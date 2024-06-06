@@ -58,7 +58,7 @@ The raw PBM dataset for a transcription factor is downloaded from [uniPROBE](htt
 
 ## Input Files
 
-1.  Raw PBM Input (.tsv)
+1.  raw PBM input (.tsv)
 - Columns
   - `8-mer:` every possible forward k-mer sequence with length k
   - `8-mer:` the reverse complement of the forward k-mer
@@ -77,7 +77,7 @@ AAAAAACA     TTTTTTGT     0.19839     2407.46     1.8310
        
 ## Output Files
 
-1. Normalized PBM data (.tsv)
+1. normalized PBM data (.tsv)
 - Columns
   - `PBM Kmer:` the sequence of every possible k-mer
   - `PBM Relative Affinity:` the relative affinity of each k-mer normalized to the k-mer with the highest MFI 
@@ -91,7 +91,7 @@ AAAAAAAT     0.13
 AAAAAACA     0.12
 ```
 
-2. Histograms of Relative Affinities (.png) 
+2. histograms of relative affinities (.png) 
 - Histogram plots
   - All relative affinity values
   - Relative affinity values for the sequences that follow the TF binding site definition 
