@@ -13,11 +13,11 @@
 
 ## Introduction
 
-`DefineTFBindingSites.from.PBM` normalizes the median fluorescence intensity (MFI) values in a raw protein-binding microarray (PBM) data file for a transcription factor of interest. The k-mer with the maximum MFI that conforms to the binding site definition is normalized to 1.0 and all other k-mers are normalized relative to that MFI value. For example, a normalized value of 0.1 is 10% of the maximum MFI. 
+`DefineTFBindingSites.from.PBM` normalizes the median fluorescence intensity (MFI) values obtained from protein-binding microarray (PBM) data for a transcription factor of interest. The k-mer with the maximum MFI that conforms to the binding site definition is normalized to 1.0 and all other k-mers are normalized relative to that MFI value. For example, a normalized value of 0.1 is 10% of the maximum MFI. 
 
 ## Methodology
 
-The raw PBM dataset for a transcription factor is downloaded from [uniPROBE](http://the_brain.bwh.harvard.edu/uniprobe/) and the user indicates the columns of the forward k-mer and the MFI. The user defines the minimal binding site using IUPAC nomenclature (ie, N = ATGC, W = AT, [etc](https://genome.ucsc.edu/goldenPath/help/iupac.html)). The tool searches for the k-mer with the largest MFI signal that conforms to the IUPAC binding site definition. For all other k-mers, the MFI signal will be normalized relative to the MFI signal of the maximum k-mer and the resulting value is called the relative affinity. Therefore, the k-mer with the maximum MFI signal will have a relative affinity of 1.0. The normalization calculation for each k-mer is: relative affinity = (MFI signal) / (MFI signal of the maximum IUPAC k-mer). 
+The raw PBM dataset for a transcription factor is downloaded from [uniPROBE](http://the_brain.bwh.harvard.edu/uniprobe/) and the user indicates the columns of the forward k-mer and the MFI. The user also defines the minimal binding site using IUPAC nomenclature (ie, N = ATGC, W = AT, [etc](https://genome.ucsc.edu/goldenPath/help/iupac.html)). The tool searches for the k-mer with the largest MFI signal that conforms to the IUPAC binding site definition. For all other k-mers, the MFI signal will be normalized relative to the MFI signal of the maximum k-mer and the resulting value is called the relative affinity. Therefore, the k-mer with the maximum MFI signal will have a relative affinity of 1.0. The normalization calculation for each k-mer is: relative affinity = (MFI signal) / (MFI signal of the maximum IUPAC k-mer). 
 
 ## Parameters
 
@@ -84,11 +84,11 @@ AAAAAACA     TTTTTTGT     0.19839     2407.46     1.8310
 
 ```
 PBM Kmer     PBM Relative Affinity
-AAAAAAAA     0.147
-AAAAAAAC     0.107
+AAAAAAAA     0.15
+AAAAAAAC     0.11
 AAAAAAAG     0.13
-AAAAAAAT     0.125
-AAAAAACA     0.123
+AAAAAAAT     0.13
+AAAAAACA     0.12
 ```
 
 2. Histograms of Relative Affinities (.png) 
