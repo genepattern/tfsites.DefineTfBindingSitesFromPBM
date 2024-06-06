@@ -1,6 +1,6 @@
 # tfsites.DefineTFBindingSites.from.PBM v1
 
-**Author(s):** Joe Solvason, Simran Jandu
+**Author(s):** Joe Solvason
 
 **Contact:** Joe Solvason (solvason@eng.ucsd.edu)
 
