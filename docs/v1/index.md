@@ -53,7 +53,7 @@ The raw PBM dataset for a transcription factor is downloaded from [uniPROBE](htt
 
 ## Warnings Printed:
 
-1. If there exists another k-mer that conforms to the binding site definition and has a higher MFI than one provided by the user as the **Max K-mer to Normalize**.
+1. If there exists another k-mer that conforms to the binding site definition and has a higher MFI than one provided by the user as **define highest relative affinity sequence**.
 2. If there are any k-mers that do not conform to the binding site definition but have a MFI greater than the k-mer provided by the user. The affinities of these k-mers will be capped at 1.0.
 
 ## Input Files
