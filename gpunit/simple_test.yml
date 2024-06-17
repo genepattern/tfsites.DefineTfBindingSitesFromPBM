@@ -8,7 +8,7 @@
 #
 
 name: "tfsites.DefineTfsites - Basic test"
-module: tfsites.DefineTfsites
+module: tfsites.DefineTFBindingSites.from.PBM
 params:
     raw.PBM.data: "data/step0-input_ets-raw-pbm-data.txt"
     binding.site.definition: "NNGGAWNN"
