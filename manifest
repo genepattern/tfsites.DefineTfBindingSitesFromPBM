@@ -160,6 +160,6 @@ privacy=public
 quality=development
 src.repo=https://github.com/genepattern/tfsites.DefineTfSites
 taskDoc=
-taskType=Transciption factor analysis
+taskType=Transcription factor analysis
 userid=ted
 version=Draft initial release
