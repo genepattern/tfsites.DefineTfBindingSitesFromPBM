@@ -7,18 +7,14 @@
 # Note: this test uses a custom diff command
 #
 
-name: "tfsites.DefineTfsites - Basic test"
-module: tfsites.DefineTFBindingSites.from.PBM
+name: "tfsites.NormalizeTfDnaAffinityData - Basic test"
+module: tfsites.NormalizeTfDnaAffinityData
 params:
-    raw.PBM.data: "data/step0-input_ets-raw-pbm-data.txt"
-    binding.site.definition: "NNGGAWNN"
-    column.of.PBM.k-mers: 1
-    column.of.PBM.MFI: 4
-    reference.relative.affinity.table.output.filename:  "0-output_ets-norm-pbm.tsv"
-    histograms.of.relative.affinity.output.filename: "0-output_aff-histograms.png"
+    raw.PBM.data: "data/"01-input_ets-raw-pbm-data.txt" 
+    core.binding.site.definition: "NNGGAWNN"
+    DNA.sequence.column: 1
+    affinity.column: 4
     header.present: FALSE
-    report.sites.only: FALSE
-    enforce.minimum.relative.affinity: FALSE
 assertions:
     jobStatus: success
 
