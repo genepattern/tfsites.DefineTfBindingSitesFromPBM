@@ -1,27 +1,28 @@
-#tfsites.defineTFBindingSites.from.PBM 
+# tfsites.NormalizeTfDnaAffinityData formerly tfsites.defineTFBindingSites.from.PBM 
 #Mon Aug 21 20:23:30 UTC 2023
 JVMLevel=
 LSID=urn\:lsid\:8080.gpserver.ip-172-31-26-71.ip-172-31-26-71.ec2.internal\:genepatternmodules\:706\:1
 author=Joe Solvason
-commandLine=python /build/tfsites-webportal/01-defineTfSitesPBM/01-defineTfSitesPBM.py -r <raw.PBM.data> -b <binding.site.definition> -k <column.of.PBM.k-mers> -m <column.of.PBM.MFI> -t <reference.relative.affinity.table.output.filename> -i <histograms.of.relative.affinity.output.filename> -p <header.present> -s <report.sites.only> -e <enforce.minimum.relative.affinity> <define.highest.relative.affinity.sequence>         
+commandLine=python /build/tfsites-webportal/01-defineTfSites/01-defineTfSites.py -r <raw.data> -b <core.binding.site.definition> -k <DNA.sequence.column> -v <affinity.column>  -p <header.present>          
+# -t <reference.relative.affinity.table.output.filename>
 cpuType=any
 description=Normalizes the median fluorescence intensity (MFI) values in a raw protein-binding microarray (PBM) data file for a transcription factor of interest. The k-mer with the maximum MFI that conforms to the IUPAC definition of a binding site is normalized to 1.0 and all other k-mers are normalized relative to that MFI value. 
 documentationUrl=https://genepattern.github.io/tfsites.DefineTfSites/v1/
 fileFormat=
 job.cpuCount=
-job.docker.image=genepattern/tfsites\:0.10
+job.docker.image=genepattern/tfsites\:0.11
 job.memory=
 job.walltime=
 language=any
-name=tfsites.DefineTFBindingSites.from.PBM
+name=tfsites.NormalizeTfDnaAffinityData
 os=any
 p1_MODE=IN
 p1_TYPE=FILE
 p1_default_value=
-p1_description=File containing the raw PBM dataset. This file is the output of a protein-binding microarray experiment obtained from uniPROBE.
+p1_description=File containing the raw affinity dataset.
 p1_fileFormat=.tsv
 p1_flag=
-p1_name=raw.PBM.data
+p1_name=raw.data
 p1_numValues=1..1
 p1_optional=
 p1_prefix=
@@ -32,10 +33,10 @@ p1_value=
 p2_MODE=
 p2_TYPE=TEXT
 p2_default_value=NNGGAWNN
-p2_description=IUPAC definition of the core transcription factor binding site(see <a href="https://www.bioinformatics.org/sms/iupac.html">here</a>). The length of the IUPAC definition should be the same length k as the k-mers in the raw PBM file.
+p2_description=IUPAC definition of the core transcription factor binding site(see <a href="https://www.bioinformatics.org/sms/iupac.html">here</a>). The length of the IUPAC definition should be the same length k as the k-mers in the raw affinity file.
 p2_fileFormat=
 p2_flag=
-p2_name=binding.site.definition
+p2_name=core.binding.site.definition
 p2_numValues=0..1
 p2_optional=
 p2_prefix=
@@ -46,10 +47,10 @@ p2_value=
 p3_MODE=
 p3_TYPE=Integer
 p3_default_value=1
-p3_description=Number of the column containing the forward DNA sequence in the raw PBM file (1-indexed, 1 is the first column).
+p3_description=Number of the column containing the DNA sequences in the raw affinity file (1-indexed, 1 is the first column).
 p3_fileFormat=
 p3_flag=
-p3_name=column.of.PBM.k-mers
+p3_name=DNA.sequence.column
 p3_numValues=1..1
 p3_optional=
 p3_prefix=
@@ -57,103 +58,51 @@ p3_prefix_when_specified=
 p3_type=java.lang.Integer
 p3_value=
 
+
 p4_MODE=
 p4_TYPE=Integer
 p4_default_value=4
-p4_description=Number of the column containing the median fluorescence intensity (MFI) signal in the raw PBM file (1-indexed, 1 is the first column).
+p4_description=Number of the column containing the raw affinity values in the input file (1-indexed, 1 is the first column).
 p4_fileFormat=
 p4_flag=
-p4_name=column.of.PBM.MFI
-p4_numValues=0..1
+p4_name=affinity.column
+p4_numValues=1..1
 p4_optional=
 p4_prefix=
 p4_prefix_when_specified=
 p4_type=java.lang.Integer
 p4_value=
 
+
 p5_MODE=
 p5_TYPE=TEXT
-p5_default_value=<raw.PBM.data_basename>.norm.pbm.tsv
-p5_description=Name of the output file containing the normalized PBM data.
-p5_fileFormat=tsv
+p5_default_value=FALSE
+p5_description=If True, a header exists in the PBM data file. If False, no header exists.
+p5_fileFormat=
 p5_flag=
-p5_name=reference.relative.affinity.table.output.filename
+p5_name=header.present
 p5_numValues=0..1
 p5_optional=
 p5_prefix=
 p5_prefix_when_specified=
 p5_type=java.lang.String
-p5_value=
+p5_value=FALSE\=FALSE;TRUE\=TRUE
 
-p6_MODE=
-p6_TYPE=TEXT
-p6_default_value=FALSE
-p6_description=If True, a header exists in the PBM data file. If False, no header exists.
-p6_fileFormat=
-p6_flag=
-p6_name=header.present
-p6_numValues=0..1
-p6_optional=
-p6_prefix=
-p6_prefix_when_specified=
-p6_type=java.lang.String
-p6_value=FALSE\=FALSE;TRUE\=TRUE
 
-p7_MODE=
-p7_TYPE=TEXT
-p7_default_value=FALSE
-p7_description=If True, only report k-mers abiding by the binding site definition. If False, report all k-mers.
-p7_fileFormat=
-p7_flag=
-p7_name=report.sites.only
-p7_numValues=0..1
-p7_optional=
-p7_prefix=
-p7_prefix_when_specified=
-p7_type=java.lang.String
-p7_value=FALSE\=FALSE;TRUE\=TRUE
+#p5_MODE=
+#p5_TYPE=TEXT
+#p5_default_value=<raw.data_basename>.norm.pbm.tsv
+#p5_description=Name of the output file containing the normalized PBM data.
+#p5_fileFormat=tsv
+#p5_flag=
+#p5_name=reference.relative.affinity.table.output.filename
+#p5_numValues=0..1
+#p5_optional=
+#p5_prefix=
+#p5_prefix_when_specified=
+#p5_type=java.lang.String
+#p5_value=
 
-p8_MODE=
-p8_TYPE=TEXT
-p8_default_value=FALSE
-p8_description=If True, enforce the relative affinities to range between 0 and 1. If False, the original range of the relative affinities will remain the same.
-p8_fileFormat=
-p8_flag=
-p8_name=enforce.minimum.relative.affinity
-p8_numValues=0..1
-p8_optional=
-p8_prefix=
-p8_prefix_when_specified=
-p8_type=java.lang.String
-p8_value=FALSE\=FALSE;TRUE\=TRUE
-
-p9_MODE=
-p9_TYPE=TEXT
-p9_default_value=<raw.PBM.data_basename>.aff-histograms.png
-p9_description=Name of the output graph containing 3 histogram plots of the relative affinity values.
-p9_fileFormat=
-p9_flag=
-p9_name=histograms.of.relative.affinity.output.filename
-p9_numValues=0..1
-p9_optional=
-p9_prefix=
-p9_prefix_when_specified=
-p9_type=java.lang.String
-p9_value=
-
-p10_MODE=
-p10_TYPE=TEXT
-p10_default_value=
-p10_description=The k-mer sequence whose MFI will be used to normalize the MFI values of all other k-mers. The relative affinity for this k-mer will be 1.0.
-p10_fileFormat=
-p10_flag=
-p10_name=define.highest.relative.affinity.sequence
-p10_numValues=0..1
-p10_optional=on
-p10_prefix=
-p10_prefix_when_specified=-d   
-p10_type=java.lang.String
-p10_value=
 
 
 privacy=public

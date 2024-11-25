@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Inputs and Outputs",
+        "description": "",
+        "hidden": false,
+        "parameters": [
+            "raw.data",
+        ]
+    },
+    {
+        "name": "Other Parameters",
+        "description": "",
+        "hidden": false,
+        "parameters": [
+            "core.binding.site.definition",
+            "DNA.sequence.column",
+            "affinity.column",
+            "header.present",
+        ]
+    }
+
+]
