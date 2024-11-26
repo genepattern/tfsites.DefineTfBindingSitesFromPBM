@@ -6,7 +6,7 @@ author=Joe Solvason
 commandLine=python /build/tfsites-webportal/01-normalizeTfDnaAffinityData/01-normalizeTfDnaAffinityData.py -r <raw.data> -b <core.binding.site.definition> -d <DNA.sequence.column> -a <affinity.column>  -p <header.present> -S <output.image.as.svg> -o <output.filename.prefix>         
 # -t <reference.relative.affinity.table.output.filename>
 cpuType=any
-description=Normalizes the median fluorescence intensity (MFI) values in a raw protein-binding microarray (PBM) data file for a transcription factor of interest. The k-mer with the maximum MFI that conforms to the IUPAC definition of a binding site is normalized to 1.0 and all other k-mers are normalized relative to that MFI value. 
+description=NormalizeTfDnaAffinityData generates a relative affinity dataset which can then be used in other TFSites modules to score binding sites. This tool normalizes a raw affinity dataset relative to the sequence with the highest value that follows the core binding site definition. The resulting dataset will report the relative affinity value for every sequence in the original dataset, ranging from 0 to 1.
 documentationUrl=https://genepattern.github.io/tfsites.NormalizeTfDnaAffinityData/v2/
 fileFormat=
 job.cpuCount=
