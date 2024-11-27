@@ -7,7 +7,7 @@ commandLine=python /build/tfsites-webportal/01-normalizeTfDnaAffinityData/01-nor
 # -t <reference.relative.affinity.table.output.filename>
 cpuType=any
 description=NormalizeTfDnaAffinityData generates a relative affinity dataset which can then be used in other TFSites modules to score binding sites. This tool normalizes a raw affinity dataset relative to the sequence with the highest value that follows the core binding site definition. The resulting dataset will report the relative affinity value for every sequence in the original dataset, ranging from 0 to 1.
-documentationUrl=https://genepattern.github.io/tfsites.NormalizeTfDnaAffinityData/v2/
+documentationUrl=https://genepattern.github.io/tfsites.NormalizeTfDNAAffinityData/v2/
 fileFormat=
 job.cpuCount=
 job.docker.image=genepattern/tfsites\:0.12
