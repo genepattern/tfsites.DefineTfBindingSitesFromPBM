@@ -3,7 +3,7 @@
 JVMLevel=
 LSID=urn\:lsid\:8080.gpserver.ip-172-31-26-71.ip-172-31-26-71.ec2.internal\:genepatternmodules\:706\:1
 author=Joe Solvason
-commandLine=python /build/tfsites-webportal/01-normalizeTfDnaAffinityData/01-normalizeTfDnaAffinityData.py -r <raw.data> -b <core.binding.site.definition> -d <DNA.sequence.column> -a <affinity.column>  -p <header.present> -S <output.image.as.svg> -o <output.filename.prefix>         
+commandLine=python /build/tfsites-webportal/01-normalizeTfDnaAffinityData/01-normalizeTfDnaAffinityData.py -r <raw.data> -b <core.binding.site.definition> -d <DNA.sequence.column> -a <affinity.column>  -p <header.present> -S <output.image.as.svg> -o <output.filename>         
 # -t <reference.relative.affinity.table.output.filename>
 cpuType=any
 description=NormalizeTfDnaAffinityData generates a relative affinity dataset which can then be used in other TFSites modules to score binding sites. This tool normalizes a raw affinity dataset relative to the sequence with the highest value that follows the core binding site definition. The resulting dataset will report the relative affinity value for every sequence in the original dataset, ranging from 0 to 1.
@@ -34,10 +34,10 @@ p1_value=
 p2_MODE=
 p2_TYPE=TEXT
 p2_default_value=relative-aff-table_site_<core.binding.site.definition>
-p2_description=IUPAC definition of the core transcription factor binding site(see <a href="https://www.bioinformatics.org/sms/iupac.html">here</a>). The length of the IUPAC definition should be the same length k as the k-mers in the raw affinity file.
+p2_description=Base name of the output files.
 p2_fileFormat=
 p2_flag=
-p2_name=output.filename.prefix
+p2_name=output.filename
 p2_numValues=0..1
 p2_optional=
 p2_prefix=
