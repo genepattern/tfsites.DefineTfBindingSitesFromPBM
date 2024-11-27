@@ -1,4 +1,4 @@
-# tfsites.NormalizeTfDnaAffinityData v1
+# tfsites.NormalizeTfDnaAffinityData v2
 
 **Author(s):** Joe Solvason
 
