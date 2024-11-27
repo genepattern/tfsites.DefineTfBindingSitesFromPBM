@@ -1,0 +1,24 @@
+[
+    {
+        "name": "Inputs and Outputs",
+        "description": "",
+        "hidden": false,
+        "parameters": [
+            "raw.data",
+            "output.filename"
+        ]
+    },
+    {
+        "name": "Other Parameters",
+        "description": "",
+        "hidden": false,
+        "parameters": [
+            "core.binding.site.definition",
+            "DNA.sequence.column",
+            "affinity.column",
+            "header.present",
+            "output.image.as.svg"
+        ]
+    }
+
+]
