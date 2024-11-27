@@ -35,7 +35,7 @@ There is a wide range of experimental techniques that can be used to generate af
     - If `True`, a header exists in the input file. If `False`, no header exists.
 - <span style="color: red;">*</span>**core binding site definition (string)**
     - IUPAC definition of the core transcription factor binding site (see [here](https://www.bioinformatics.org/sms/iupac.html)). The length of the IUPAC definition should be the same length k as the k-mers in the raw affinity file.
-- <span style="color: red;">*</span>**output name (string)**
+- <span style="color: red;">*</span>**output filename (string)**
     - Base name of the output files.
  
 ### Other Parameters
