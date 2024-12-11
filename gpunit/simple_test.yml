@@ -8,7 +8,7 @@
 #
 
 name: "tfsites.NormalizeTfDnaAffinityData - Basic test"
-module: tfsites.NormalizeTfDnaAffinityData
+module: tfsites.NormalizeTfDNAAffinityData
 params:
     raw.data: "data/01-input_ets-raw-pbm-data.txt" 
     core.binding.site.definition: "NNGGAWNN"
